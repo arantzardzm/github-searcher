@@ -23,7 +23,8 @@
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "prettier": "prettier \"src/**/*.{ts,js,jsx,json}\"",
-    "prettier:write": "prettier \"src/**/*.{ts,js,jsx,json}\" --write"
+    "prettier:write": "prettier \"src/**/*.{ts,js,jsx,json}\" --write",
+    "test:cover": "jest --collectCoverage --silent"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,6 +69,12 @@
     "*.json": [
       "yarn prettier:write",
       "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,js}",
+      "!src/serviceWorker.ts"
     ]
   }
 }
