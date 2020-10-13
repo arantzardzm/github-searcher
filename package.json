@@ -60,13 +60,13 @@
     }
   },
   "lint-staged": {
-    "*.{js}": [
-      "yarn prettier:write",
-      "yarn lint:fix",
+    "*.{ts,js,tsx}": [
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ],
     "*.json": [
-      "yarn prettier:write",
+      "prettier --write",
       "git add"
     ]
   }
