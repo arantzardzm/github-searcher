@@ -61,11 +61,12 @@
   },
   "lint-staged": {
     "*.{ts,js,tsx}": [
-      "prettier --write",
+      "yarn prettier:write",
+      "yarn lint:fix",
       "git add"
     ],
     "*.json": [
-      "prettier --write",
+      "yarn prettier:write",
       "git add"
     ]
   }
