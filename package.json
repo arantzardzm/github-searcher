@@ -60,8 +60,9 @@
     }
   },
   "lint-staged": {
-    "*.{ts,js,tsx}": [
+    "*.{js}": [
       "yarn prettier:write",
+      "yarn lint:fix",
       "git add"
     ],
     "*.json": [
