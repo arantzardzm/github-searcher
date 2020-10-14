@@ -1,16 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { About, Search, NotFound } from './pages';
 
 function App() {
   return (
     <>
       <Router>
         <Switch>
-          <Route path="/test">
-            <div className="App">test</div>
+          <Route exact path="/about">
+            <About />
           </Route>
-          <Route path="/asdf">
-            <div className="App">asdf</div>
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route>
+            <NotFound />
           </Route>
         </Switch>
       </Router>
