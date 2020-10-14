@@ -1,8 +1,8 @@
 import React from 'react';
 
 const About = () => (
-  <div>
-    <h2>About</h2>
+  <div className="top-left-align">
+    <h1>About</h1>
   </div>
 );
 

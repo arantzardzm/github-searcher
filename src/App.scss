@@ -1,0 +1,74 @@
+// Google Fonts and Variables
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap);
+$montserrat-sans: 'Montserrat', sans-serif;
+
+// Colors
+$white: #FCFAFA;
+$blue: #033860;
+$grey: #454C5E;
+$green: #517664;
+
+// Components
+h1 {
+  font-family: $montserrat-sans;
+  color: $blue;
+}
+
+p {
+  font-family: $montserrat-sans;
+  color: $grey;
+  margin-top: -1%
+}
+
+form {
+  width: 50%
+}
+
+input {
+  width: 250px;
+  padding: 10px 15px;
+  margin-right: 5px;
+  box-sizing: border-box;
+}
+
+select {
+  width: 150px;
+  padding: 10px 15px;
+  margin-left: 5px;
+  @media only screen and (max-width: 900px) {
+    width: 250px;
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+// Classes
+.wrapper {
+  position: absolute;
+  top: 2%; // this changes to 30% to 2%
+  left: 2%;
+  right: 2%;
+}
+
+.grid-wrapper {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
+}
+
+.grid-item {
+  border: 1px solid $grey;
+  background-color: $blue + D9;
+  color: $white;
+  padding: 60px;
+  font-size: 20px;
+}

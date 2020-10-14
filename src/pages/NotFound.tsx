@@ -1,8 +1,8 @@
 import React from 'react';
 
 const NotFound = () => (
-  <div>
-    <h2>NotFound</h2>
+  <div className="top-left-align">
+    <h1>Not Found</h1>
   </div>
 );
 
