@@ -24,10 +24,20 @@ const Search = (props: any) => {
         <br />
         <div>
           <form>
-            <Input search={props.getUserSearchInput} searchInput={searchInput}/>
-            <Select select={props.getUserSelectInput} selectInput={selectInput}/>
+            <Input
+              getSearch={props.getUserSearchInput}
+              getPosts={props.getPosts}
+              searchInput={searchInput}
+              selectInput={selectInput}
+            />
+            <Select
+              getSelect={props.getUserSelectInput}
+              getPosts={props.getPosts}
+              searchInput={searchInput}
+              selectInput={selectInput}
+            />
           </form>
-          <button type="button" onClick={() => props.getPosts(selectInput, searchInput)}>Here</button>
+
         </div>
         <div className="grid-wrapper">
           <Grid posts={items} />

@@ -1,10 +1,21 @@
 import React from 'react';
 
 const Select = (props: any) => {
-  const { select, selectInput } = props;
+  const { getSelect, getPosts, searchInput, selectInput } = props;
+
+  const onChangeHandler = (value: string) => {
+    getSelect(value);
+    if (searchInput.length >= 3){
+      getPosts(value, searchInput);
+    }
+  }
+
   return (
     <>
-      <select onChange={(e) => select(e.target.value)} value={selectInput || ''}>
+      <select
+        onChange={(e) => onChangeHandler(e.target.value)}
+        value={selectInput || ''}
+      >
         <option>Users</option>
         <option>Repositories</option>
       </select>
