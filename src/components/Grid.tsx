@@ -5,7 +5,7 @@ const Grid = (props: any) => {
   let mappedPosts = [];
   if (posts) {
     mappedPosts = posts.map((item: any) => (
-      <div className="grid-item">
+      <div className="grid-item" key={item.id}>
         <div className="grid-item-image">
           <img src={item.avatar_url} alt="img" width="100" height="100" />
         </div>
@@ -20,7 +20,7 @@ const Grid = (props: any) => {
           {item.login}
           {' '}
           <br />
-          <a href={item.html_url} target="_blank" rel="noreferrer">Link to repository</a>
+          <a href={item.html_url} target="_blank" rel="noopener noreferrer">Link to repository</a>
           {' '}
           <br />
         </div>

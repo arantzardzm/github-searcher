@@ -4,10 +4,14 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import Grid from '../components/Grid';
 
-import { getPosts } from '../redux/Github/actions';
+import {
+  getUserSelectInput,
+  getUserSearchInput,
+  getPosts,
+} from '../redux/Github/actions';
 
 const Search = (props: any) => {
-  const { posts } = props;
+  const { posts, selectInput, searchInput } = props;
   const { items } = posts;
 
   return (
@@ -20,10 +24,10 @@ const Search = (props: any) => {
         <br />
         <div>
           <form>
-            <Input />
-            <Select />
+            <Input search={props.getUserSearchInput} />
+            <Select select={props.getUserSelectInput} />
           </form>
-          <button type="button" onClick={() => props.getPosts()}>Here</button>
+          <button type="button" onClick={() => props.getPosts(selectInput, searchInput)}>Here</button>
         </div>
         <div className="grid-wrapper">
           <Grid posts={items} />
@@ -34,11 +38,15 @@ const Search = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
+  selectInput: state.github.selectInput,
+  searchInput: state.github.searchInput,
   posts: state.github.posts,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getPosts: () => dispatch(getPosts()),
+  getUserSelectInput: (selectInput: string) => dispatch(getUserSelectInput(selectInput)),
+  getUserSearchInput: (searchInput: string) => dispatch(getUserSearchInput(searchInput)),
+  getPosts: (selectInput: string, searchInput: string) => dispatch(getPosts(selectInput, searchInput)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
