@@ -1,19 +1,19 @@
-import React, { useRef } from 'react';
-import { debounce } from 'lodash';
+import React from 'react';
+
+let debounceInterval: any;
 
 const Input = (props: any) => {
   const {
     getSearch, getPosts, clearPosts, searchInput, selectInput,
   } = props;
 
-  const debounceCall = useRef(
-    debounce((value: string) => getPosts(selectInput, value), 2000),
-  ).current;
-
   const onChangeHandler = (value: string) => {
+    clearTimeout(debounceInterval);
     getSearch(value);
     if (value.length >= 3) {
-      debounceCall(value);
+      debounceInterval = setTimeout(async () => {
+        getPosts(selectInput, value);
+      }, 2000);
     } else {
       clearPosts();
     }

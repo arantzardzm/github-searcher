@@ -4,6 +4,7 @@ import _ from 'lodash';
 import Input from '../components/Input';
 import Select from '../components/Select';
 import Grid from '../components/Grid';
+import Loader from '../components/Loader';
 
 import {
   getUserSelectInput,
@@ -21,6 +22,7 @@ const Search = (props: any) => {
     getSearchInput,
     getPosts,
     clearPosts,
+    status,
   } = props;
   const { items } = posts;
   const className = _.isEmpty(posts) ? 'wrapper-full' : 'wrapper-top';
@@ -28,6 +30,7 @@ const Search = (props: any) => {
   return (
     <>
       <div className={className}>
+        <Loader status={status} />
         <div>
           <h1>Github Searcher</h1>
           <p>Search users or repositories by typing in the input below</p>
@@ -62,6 +65,7 @@ const mapStateToProps = (state: any) => ({
   selectInput: state.github.selectInput,
   searchInput: state.github.searchInput,
   posts: state.github.posts,
+  status: state.github.status,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
