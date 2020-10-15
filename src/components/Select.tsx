@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Select = (props: any) => {
-  const { select } = props;
+  const { select, selectInput } = props;
   return (
     <>
-      <select onChange={(e) => select(e.target.value)}>
+      <select onChange={(e) => select(e.target.value)} value={selectInput || ''}>
         <option>Users</option>
         <option>Repositories</option>
       </select>

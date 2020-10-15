@@ -24,8 +24,8 @@ const Search = (props: any) => {
         <br />
         <div>
           <form>
-            <Input search={props.getUserSearchInput} />
-            <Select select={props.getUserSelectInput} />
+            <Input search={props.getUserSearchInput} searchInput={searchInput}/>
+            <Select select={props.getUserSelectInput} selectInput={selectInput}/>
           </form>
           <button type="button" onClick={() => props.getPosts(selectInput, searchInput)}>Here</button>
         </div>

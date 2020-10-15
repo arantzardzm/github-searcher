@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Input = (props: any) => {
-  const { search } = props;
+  const { search, searchInput } = props;
   return (
     <>
-      <input onChange={(e) => search(e.target.value)} placeholder="Input to search" />
+      <input onChange={(e) => search(e.target.value)} placeholder="Input to search" value={searchInput || ''}/>
     </>
   );
 };
