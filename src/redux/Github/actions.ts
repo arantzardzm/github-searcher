@@ -1,25 +1,14 @@
-import {GET_POSTS} from './types'
-// import axios from 'axios'
+import axios from 'axios';
+import { GET_POSTS } from './types';
 
-export const getPosts = () => {
-  console.log("here");
-  // const test = axios.get('https://www.techiediaries.com/api/data.json');
-  return {
-    type: GET_POSTS,
+export const getPosts = () => async (dispatch: any) => {
+  try {
+    const data = await axios.get('https://api.github.com/search/users?q=sam&page=1&per_page=100');
+    dispatch({
+      type: GET_POSTS,
+      posts: data.data,
+    });
+  } catch (e) {
+    // todo handle fail
   }
-    // return (dispatch: any) => {
-    //     return axios.get("https://www.techiediaries.com/api/data.json")
-    //         .then(response => {
-    //             return response.data
-    //         })
-    //         .then(data => {
-    //             dispatch({
-    //                 type: GET_POSTS,
-    //                 payload: data
-    //             })
-    //         })
-    //         .catch(error => {
-    //             throw (error);
-    //         });
-    // };
 };

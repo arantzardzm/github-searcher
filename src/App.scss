@@ -6,7 +6,7 @@ $montserrat-sans: 'Montserrat', sans-serif;
 $white: #FCFAFA;
 $blue: #033860;
 $grey: #454C5E;
-$green: #517664;
+$yellow: #E1AD01;
 
 // Components
 h1 {
@@ -43,6 +43,15 @@ select {
   }
 }
 
+a {
+  color: $yellow;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
 // Classes
 .wrapper {
   position: absolute;
@@ -66,9 +75,19 @@ select {
 }
 
 .grid-item {
+  font-family: $montserrat-sans;
   border: 1px solid $grey;
   background-color: $blue + D9;
   color: $white;
-  padding: 60px;
-  font-size: 20px;
+  font-size: 15px;
+  display: flex;
+  padding: 2%;
+  @media only screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+}
+
+.grid-item-text {
+  margin-left: 5%;
+  flex: 1
 }
