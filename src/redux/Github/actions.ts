@@ -3,6 +3,7 @@ import {
   GET_USER_SELECT_INPUT,
   GET_USER_SEARCH_INPUT,
   GET_POSTS,
+  CLEAR_POSTS,
 } from './types';
 
 export const getUserSelectInput = (selectInput: string) => ({
@@ -15,10 +16,15 @@ export const getUserSearchInput = (searchInput: string) => ({
   searchInput,
 });
 
-export const getPosts = (selectInput: string, searchInput: string) => async (dispatch: any) => {
+export const getUserPosts = (
+  selectInput: string,
+  searchInput: string,
+) => async (dispatch: any) => {
   try {
-    const type = (selectInput === 'Users') ? 'users' : 'repositories';
-    const data = await axios.get(`https://api.github.com/search/${type}?q=${searchInput}&page=1&per_page=100`);
+    const type = selectInput === 'Users' ? 'users' : 'repositories';
+    const data = await axios.get(
+      `https://api.github.com/search/${type}?q=${searchInput}&page=1&per_page=100`,
+    );
     dispatch({
       type: GET_POSTS,
       posts: data.data,
@@ -27,3 +33,7 @@ export const getPosts = (selectInput: string, searchInput: string) => async (dis
     // todo handle fail
   }
 };
+
+export const clearUserPosts = () => ({
+  type: CLEAR_POSTS,
+});

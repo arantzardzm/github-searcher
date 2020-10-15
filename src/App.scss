@@ -53,11 +53,20 @@ img {
 }
 
 // Classes
-.wrapper {
+.wrapper-full {
   position: absolute;
-  top: 2%; // this changes to 30% to 2%
+  top: 30%;
   left: 2%;
   right: 2%;
+  transition:all .5s linear;
+}
+
+.wrapper-top {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  right: 2%;
+  transition:all .5s linear;
 }
 
 .grid-wrapper {

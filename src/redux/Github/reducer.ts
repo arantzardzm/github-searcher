@@ -2,6 +2,7 @@ import {
   GET_USER_SELECT_INPUT,
   GET_USER_SEARCH_INPUT,
   GET_POSTS,
+  CLEAR_POSTS,
 } from './types';
 
 const INITIAL_STATE = {
@@ -26,6 +27,11 @@ const reducer = (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         posts: action.posts,
+      };
+    case CLEAR_POSTS:
+      return {
+        ...state,
+        posts: [],
       };
     default:
       return state;

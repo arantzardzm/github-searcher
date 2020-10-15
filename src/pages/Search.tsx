@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import Input from '../components/Input';
 import Select from '../components/Select';
 import Grid from '../components/Grid';
@@ -7,16 +8,26 @@ import Grid from '../components/Grid';
 import {
   getUserSelectInput,
   getUserSearchInput,
-  getPosts,
+  getUserPosts,
+  clearUserPosts,
 } from '../redux/Github/actions';
 
 const Search = (props: any) => {
-  const { posts, selectInput, searchInput } = props;
+  const {
+    posts,
+    selectInput,
+    searchInput,
+    getSelectInput,
+    getSearchInput,
+    getPosts,
+    clearPosts,
+  } = props;
   const { items } = posts;
+  const className = _.isEmpty(posts) ? 'wrapper-full' : 'wrapper-top';
 
   return (
     <>
-      <div className="wrapper">
+      <div className={className}>
         <div>
           <h1>Github Searcher</h1>
           <p>Search users or repositories by typing in the input below</p>
@@ -25,19 +36,19 @@ const Search = (props: any) => {
         <div>
           <form>
             <Input
-              getSearch={props.getUserSearchInput}
-              getPosts={props.getPosts}
+              getSearch={getSearchInput}
+              getPosts={getPosts}
+              clearPosts={clearPosts}
               searchInput={searchInput}
               selectInput={selectInput}
             />
             <Select
-              getSelect={props.getUserSelectInput}
-              getPosts={props.getPosts}
+              getSelect={getSelectInput}
+              getPosts={getPosts}
               searchInput={searchInput}
               selectInput={selectInput}
             />
           </form>
-
         </div>
         <div className="grid-wrapper">
           <Grid posts={items} />
@@ -54,9 +65,12 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getUserSelectInput: (selectInput: string) => dispatch(getUserSelectInput(selectInput)),
-  getUserSearchInput: (searchInput: string) => dispatch(getUserSearchInput(searchInput)),
-  getPosts: (selectInput: string, searchInput: string) => dispatch(getPosts(selectInput, searchInput)),
+  getSelectInput: (selectInput: string) => dispatch(getUserSelectInput(selectInput)),
+  getSearchInput: (searchInput: string) => dispatch(getUserSearchInput(searchInput)),
+  getPosts: (selectInput: string, searchInput: string) => {
+    dispatch(getUserPosts(selectInput, searchInput));
+  },
+  clearPosts: () => dispatch(clearUserPosts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

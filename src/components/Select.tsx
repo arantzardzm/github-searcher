@@ -1,14 +1,16 @@
 import React from 'react';
 
 const Select = (props: any) => {
-  const { getSelect, getPosts, searchInput, selectInput } = props;
+  const {
+    getSelect, getPosts, searchInput, selectInput,
+  } = props;
 
   const onChangeHandler = (value: string) => {
     getSelect(value);
-    if (searchInput.length >= 3){
-      getPosts(value, searchInput);
+    if (searchInput.length >= 3) {
+      getPosts(value, searchInput); // mini bug stop debounce call
     }
-  }
+  };
 
   return (
     <>
