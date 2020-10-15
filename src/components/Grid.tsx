@@ -1,30 +1,39 @@
 import React from 'react';
 
-const Grid = () => (
-  <>
-    <div className="grid-container">
-      <div className="grid-item">1 test</div>
-      <div className="grid-item">2 test</div>
-      <div className="grid-item">3</div>
-      <div className="grid-item">4</div>
-      <div className="grid-item">5</div>
-      <div className="grid-item">6</div>
-      <div className="grid-item">7</div>
-      <div className="grid-item">8</div>
-      <div className="grid-item">9</div>
-      <div className="grid-item">5</div>
-      <div className="grid-item">6</div>
-      <div className="grid-item">7</div>
-      <div className="grid-item">8</div>
-      <div className="grid-item">7</div>
-      <div className="grid-item">8</div>
-      <div className="grid-item">9</div>
-      <div className="grid-item">5</div>
-      <div className="grid-item">6</div>
-      <div className="grid-item">7</div>
-      <div className="grid-item">8</div>
-    </div>
-  </>
-);
+const Grid = (props: any) => {
+  const { posts } = props;
+  let mappedPosts = [];
+  if (posts) {
+    mappedPosts = posts.map((item: any) => (
+      <div className="grid-item" key={item.id}>
+        <div className="grid-item-image">
+          <img src={item.avatar_url} alt="img" width="100" height="100" />
+        </div>
+        <div className="grid-item-text">
+          Id:
+          {' '}
+          {item.id}
+          {' '}
+          <br />
+          Name:
+          {' '}
+          {item.login}
+          {' '}
+          <br />
+          <a href={item.html_url} target="_blank" rel="noopener noreferrer">Link to repository</a>
+          {' '}
+          <br />
+        </div>
+      </div>
+    ));
+  }
+  return (
+    <>
+      <div className="grid-container">
+        {mappedPosts}
+      </div>
+    </>
+  );
+};
 
 export default Grid;
