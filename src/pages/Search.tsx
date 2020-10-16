@@ -22,8 +22,8 @@ const Search = (props: Props) => {
     selectInput,
     searchInput,
     status,
-    getSelectInput,
-    getSearchInput,
+    updateSelectInput,
+    updateSearchInput,
     getPosts,
     clearPosts,
   } = props;
@@ -32,7 +32,7 @@ const Search = (props: Props) => {
 
   const onInputChange = (value: string) => {
     clearTimeout(debounceInterval);
-    getSearchInput(value);
+    updateSearchInput(value);
     if (value.length >= 3) {
       debounceInterval = setTimeout(async () => {
         getPosts(selectInput, value);
@@ -43,7 +43,8 @@ const Search = (props: Props) => {
   };
 
   const onSelectChange = (value: string) => {
-    getSelectInput(value);
+    clearTimeout(debounceInterval);
+    updateSelectInput(value);
     if (searchInput.length >= 3) {
       getPosts(value, searchInput);
     }
@@ -73,7 +74,7 @@ const Search = (props: Props) => {
           </form>
         </div>
         <div className="grid-wrapper">
-          <Grid posts={items} status={status} selectInput={selectInput} />
+          <Grid posts={items} status={status} input={selectInput} />
         </div>
       </div>
     </>
@@ -88,8 +89,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getSelectInput: (selectInput: string) => dispatch(getUserSelectInput(selectInput)),
-  getSearchInput: (searchInput: string) => dispatch(getUserSearchInput(searchInput)),
+  updateSelectInput: (selectInput: string) => dispatch(getUserSelectInput(selectInput)),
+  updateSearchInput: (searchInput: string) => dispatch(getUserSearchInput(searchInput)),
   getPosts: (selectInput: string, searchInput: string) => {
     dispatch(getUserPosts(selectInput, searchInput));
   },

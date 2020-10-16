@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Loader = (props: any) => {
+interface Props {
+  status: 'success' | 'loading' | 'error';
+}
+
+const Loader = (props: Props) => {
   const { status } = props;
   let className = 'hidden';
   if (status === 'loading') {

@@ -3,8 +3,8 @@ export default interface Props {
   selectInput: string;
   searchInput: string;
   status: 'success' | 'loading' | 'error';
-  getSelectInput: Function;
-  getSearchInput: Function;
+  updateSelectInput: Function;
+  updateSearchInput: Function;
   getPosts: Function;
   clearPosts: Function;
 }

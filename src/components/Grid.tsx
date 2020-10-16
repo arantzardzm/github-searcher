@@ -1,14 +1,20 @@
 import React from 'react';
 import _ from 'lodash';
 
-const Grid = (props: any) => {
-  const { posts, status, selectInput } = props;
+interface Props {
+  posts: any;
+  status: 'success' | 'loading' | 'error';
+  input: string;
+}
+
+const Grid = (props: Props) => {
+  const { posts, status, input } = props;
   let container;
   if (status === 'success') {
     let mappedPosts = [];
     let message;
     if (!_.isEmpty(posts)) {
-      if (selectInput === 'Users') {
+      if (input === 'Users') {
         mappedPosts = posts.map((item: any) => (
           <div className="grid-item" key={item.id}>
             <div className="grid-item-image">
