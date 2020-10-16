@@ -18,11 +18,11 @@ const Search = (props: any) => {
     posts,
     selectInput,
     searchInput,
+    status,
     getSelectInput,
     getSearchInput,
     getPosts,
     clearPosts,
-    status,
   } = props;
   const { items } = posts;
   const className = _.isEmpty(posts) ? 'wrapper-full' : 'wrapper-top';
@@ -54,7 +54,7 @@ const Search = (props: any) => {
           </form>
         </div>
         <div className="grid-wrapper">
-          <Grid posts={items} />
+          <Grid posts={items} status={status} />
         </div>
       </div>
     </>
