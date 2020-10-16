@@ -26,14 +26,21 @@ export const getUserPosts = (
     type: GET_USER_POSTS_LOADING,
   });
   try {
-    const type = selectInput === 'Users' ? 'users' : 'repositories';
-    const data = await axios.get(
-      `https://api.github.com/search/${type}?q=${searchInput}&page=1&per_page=100`,
-    );
-    dispatch({
-      type: GET_USER_POSTS,
-      posts: data.data,
+    const data = await axios.post('http://localhost:2900/api/search', {
+      selectInput: selectInput === 'Users' ? 'users' : 'repositories',
+      searchInput,
     });
+
+    if (data.data.status === 200) {
+      dispatch({
+        type: GET_USER_POSTS,
+        posts: data.data.data,
+      });
+    } else {
+      dispatch({
+        type: GET_USER_POSTS_ERROR,
+      });
+    }
   } catch (e) {
     dispatch({
       type: GET_USER_POSTS_ERROR,
