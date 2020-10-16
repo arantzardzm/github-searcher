@@ -54,7 +54,7 @@ const Search = (props: any) => {
           </form>
         </div>
         <div className="grid-wrapper">
-          <Grid posts={items} status={status} />
+          <Grid posts={items} status={status} selectInput={selectInput} />
         </div>
       </div>
     </>
