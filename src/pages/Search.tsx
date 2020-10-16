@@ -5,6 +5,7 @@ import Input from '../components/Input';
 import Select from '../components/Select';
 import Grid from '../components/Grid';
 import Loader from '../components/Loader';
+import Props from '../interfaces/Props';
 
 import {
   getUserSelectInput,
@@ -13,7 +14,9 @@ import {
   clearUserPosts,
 } from '../redux/Github/actions';
 
-const Search = (props: any) => {
+let debounceInterval: any;
+
+const Search = (props: Props) => {
   const {
     posts,
     selectInput,
@@ -27,6 +30,25 @@ const Search = (props: any) => {
   const { items } = posts;
   const className = _.isEmpty(posts) ? 'wrapper-full' : 'wrapper-top';
 
+  const onInputChange = (value: string) => {
+    clearTimeout(debounceInterval);
+    getSearchInput(value);
+    if (value.length >= 3) {
+      debounceInterval = setTimeout(async () => {
+        getPosts(selectInput, value);
+      }, 2000);
+    } else {
+      clearPosts();
+    }
+  };
+
+  const onSelectChange = (value: string) => {
+    getSelectInput(value);
+    if (searchInput.length >= 3) {
+      getPosts(value, searchInput);
+    }
+  };
+
   return (
     <>
       <div className={className}>
@@ -39,17 +61,14 @@ const Search = (props: any) => {
         <div>
           <form>
             <Input
-              getSearch={getSearchInput}
-              getPosts={getPosts}
-              clearPosts={clearPosts}
-              searchInput={searchInput}
-              selectInput={selectInput}
+              input={searchInput}
+              placeholder="Please enter an input"
+              onChange={(e: any) => onInputChange(e.target.value)}
             />
             <Select
-              getSelect={getSelectInput}
-              getPosts={getPosts}
-              searchInput={searchInput}
-              selectInput={selectInput}
+              input={selectInput}
+              options={['Users', 'Repositories']}
+              onChange={(e: any) => onSelectChange(e.target.value)}
             />
           </form>
         </div>

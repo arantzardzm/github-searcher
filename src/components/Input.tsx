@@ -1,30 +1,20 @@
 import React from 'react';
 
-let debounceInterval: any;
+interface Props {
+  input: string;
+  placeholder: string;
+  onChange: any;
+}
 
-const Input = (props: any) => {
-  const {
-    getSearch, getPosts, clearPosts, searchInput, selectInput,
-  } = props;
-
-  const onChangeHandler = (value: string) => {
-    clearTimeout(debounceInterval);
-    getSearch(value);
-    if (value.length >= 3) {
-      debounceInterval = setTimeout(async () => {
-        getPosts(selectInput, value);
-      }, 2000);
-    } else {
-      clearPosts();
-    }
-  };
+const Input = (props: Props) => {
+  const { input, placeholder, onChange } = props;
 
   return (
     <>
       <input
-        onChange={(e) => onChangeHandler(e.target.value)}
-        placeholder="Input to search"
-        value={searchInput || ''}
+        onChange={onChange}
+        placeholder={placeholder || ''}
+        value={input || ''}
       />
     </>
   );

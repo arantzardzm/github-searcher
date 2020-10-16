@@ -1,25 +1,21 @@
 import React from 'react';
 
-const Select = (props: any) => {
-  const {
-    getSelect, getPosts, searchInput, selectInput,
-  } = props;
+interface Props {
+  input: string;
+  options: string[];
+  onChange: any;
+}
 
-  const onChangeHandler = (value: string) => {
-    getSelect(value);
-    if (searchInput.length >= 3) {
-      getPosts(value, searchInput); // stop debounce call
-    }
-  };
+const Select = (props: Props) => {
+  const { input, options, onChange } = props;
 
+  const mappedOptions = options.map((option: any) => (
+    <option key={option}>{option}</option>
+  ));
   return (
     <>
-      <select
-        onChange={(e) => onChangeHandler(e.target.value)}
-        value={selectInput || ''}
-      >
-        <option>Users</option>
-        <option>Repositories</option>
+      <select onChange={onChange} value={input || ''}>
+        {mappedOptions}
       </select>
     </>
   );
