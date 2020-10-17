@@ -6,9 +6,9 @@ This project was created as a result of a code challenge provided by Tradeling. 
 More details on the code challenge implementation can be found [here](https://github.com/tradeling/coding-tasks/tree/develop/fullstack-javascript).
 
 ## Screenshots of Project
-![Search Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/SearchPage.png=100x100)
-![Users Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/UsersSelect.png=100x100)
-![Repositories Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/RepositoriesSelect.png=100x100)
+![Search Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/SearchPage.png =100x100)
+![Users Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/UsersSelect.png =100x100)
+![Repositories Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/RepositoriesSelect.png =100x100)
 
 
 ## Technologies Used
