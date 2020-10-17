@@ -5,9 +5,10 @@ This project contains the frontend for the Github Search Application. It allows 
 This project was created as a result of a code challenge provided by Tradeling. More details on the code challenge implementation can be found [here](https://github.com/tradeling/coding-tasks/tree/develop/fullstack-javascript).
 
 ## Screenshots of Project
-![Search Page Image](https://octodex.github.com/images/SearchPage.png)
-![Search Page Image](https://octodex.github.com/images/UsersSelect.png)
-![Search Page Image](https://octodex.github.com/images/RepositoriesSelect.png)
+![Search Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/SearchPage.png)
+![Users Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/UsersSelect.png)
+![Repositories Select Page Image](https://github.com/arantzardzm/github-searcher/blob/main/public/images/RepositoriesSelect.png)
+
 
 ## Technologies Used
 <b>Built with</b>
