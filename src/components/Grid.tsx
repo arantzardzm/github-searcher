@@ -36,7 +36,7 @@ const Grid = (props: Props) => {
             </div>
           </div>
         ));
-      } else {
+      } else if (input === 'Repositories') {
         mappedPosts = posts.map((item: any) => (
           <div className="grid-item" key={item.id}>
             <div className="grid-item-text">
@@ -62,6 +62,37 @@ const Grid = (props: Props) => {
               <br />
               <a href={item.html_url} target="_blank" rel="noopener noreferrer">
                 Link to repository
+              </a>
+              {' '}
+            </div>
+          </div>
+        ));
+      } else {
+        mappedPosts = posts.map((item: any) => (
+          <div className="grid-item" key={item.id}>
+            <div className="grid-item-text">
+              Title:
+              {' '}
+              {item.title}
+              {' '}
+              <br />
+              State:
+              {' '}
+              {item.state}
+              {' '}
+              <br />
+              Comments:
+              {' '}
+              {item.comments}
+              {' '}
+              <br />
+              Creation Date:
+              {' '}
+              {item.created_at}
+              {' '}
+              <br />
+              <a href={item.html_url} target="_blank" rel="noopener noreferrer">
+                Link to issue
               </a>
               {' '}
             </div>

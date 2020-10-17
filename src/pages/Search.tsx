@@ -69,7 +69,7 @@ const Search = (props: Props) => {
             />
             <Select
               input={selectInput}
-              options={['Users', 'Repositories']}
+              options={['Users', 'Repositories', 'Issues']}
               onChange={(e: any) => onSelectChange(e.target.value)}
             />
           </form>

@@ -28,7 +28,7 @@ export const getUserPosts = (
   });
   try {
     const data = await axios.post('http://localhost:2900/api/search', {
-      selectInput: selectInput === 'Users' ? 'users' : 'repositories',
+      selectInput: selectInput ? selectInput.toLowerCase() : '',
       searchInput,
     });
     if (data.data.status === 200) {
