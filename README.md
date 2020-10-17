@@ -23,6 +23,7 @@ More details on the code challenge implementation can be found [here](https://gi
 <b>Code Conventions:</b>
 - [Airbnb](https://github.com/airbnb/javascript)
 
+
 ## Installation
 ```
 git clone https://github.com/arantzardzm/github-searcher
@@ -34,7 +35,18 @@ yarn start
 The application should open up in your browser with: http://localhost:3000. \
 Feel free to explore and search for users, repositories, and issues!
 
-## Search API Reference
+
+## Implementation Setup
+The application is split into three pages (About, Search, Not Found) and four reusable components (Grid, Input, Loader, Select). The Search page holds most of the functionality: the setting of the user input and user selection through the debounce implementation. 
+
+
+## Implementation Redux/Redux Persist
+The application uses Redux and Redux Persist for handling state management. The reducer and its actions allow for the storing and managing of the user input, user selection, the results retrieved, the status of the API call, and message information display.
+
+
+## Implementation Search API 
+The Search API is made as a POST request from the reducer action to our local backend. It simply sends the search and select parameters that the user chose and retrieves a list of either users, respositories, and issues. The success and/or failure of the calls is also handled in the reducer action.
+
 <b>Request:</b>
 ```
 POST /api/search HTTP/1.1
@@ -63,6 +75,7 @@ Body:
    }
 }
 ```
+
 
 ## Tests
 In order to run the test cases created for this project, you can run the following command:
