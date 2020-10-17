@@ -11,7 +11,7 @@ function App() {
           <Route exact path="/about">
             <About />
           </Route>
-          <Route exact path="/search">
+          <Route exact path={['/', '/search']}>
             <Search />
           </Route>
           <Route>
