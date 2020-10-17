@@ -78,7 +78,7 @@ Body:
 ```
 
 
-## Tests
+## Tests (WIP)
 In order to run the test cases created for this project, you can run the following command:
 ```
 yarn test:cover
