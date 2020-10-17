@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   searchInput: '',
   posts: [],
   status: 'success',
+  message: '',
 };
 
 const reducer = (state = INITIAL_STATE, action: any) => {
@@ -20,33 +21,39 @@ const reducer = (state = INITIAL_STATE, action: any) => {
       return {
         ...state,
         selectInput: action.selectInput,
+        message: '',
       };
     case GET_USER_SEARCH_INPUT:
       return {
         ...state,
         searchInput: action.searchInput,
+        message: '',
       };
     case GET_USER_POSTS:
       return {
         ...state,
         posts: action.posts,
         status: 'success',
+        message: action.message,
       };
     case GET_USER_POSTS_LOADING:
       return {
         ...state,
         status: 'loading',
+        message: '',
       };
     case GET_USER_POSTS_ERROR:
       return {
         ...state,
         posts: [],
         status: 'error',
+        message: 'An error has occurred. Please try again later.',
       };
     case CLEAR_USER_POSTS:
       return {
         ...state,
         posts: [],
+        message: '',
       };
     default:
       return state;

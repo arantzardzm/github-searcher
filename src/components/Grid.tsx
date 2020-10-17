@@ -5,10 +5,13 @@ interface Props {
   posts: any;
   status: 'success' | 'loading' | 'error';
   input: string;
+  text: string;
 }
 
 const Grid = (props: Props) => {
-  const { posts, status, input } = props;
+  const {
+    posts, status, input, text,
+  } = props;
   let container;
   if (status === 'success') {
     let mappedPosts = [];
@@ -66,7 +69,7 @@ const Grid = (props: Props) => {
         ));
       }
     } else {
-      message = <p>No records were found. Please try a different search!</p>;
+      message = <p>{text}</p>;
     }
     container = (
       <div className="grid-container">
@@ -76,7 +79,7 @@ const Grid = (props: Props) => {
   } else if (status === 'error') {
     container = (
       <div>
-        <p>An error has occurred. Please try again later.</p>
+        <p>{text}</p>
       </div>
     );
   }

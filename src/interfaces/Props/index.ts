@@ -7,4 +7,5 @@ export default interface Props {
   updateSearchInput: Function;
   getPosts: Function;
   clearPosts: Function;
+  message: string;
 }

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 import {
   GET_USER_SELECT_INPUT,
   GET_USER_SEARCH_INPUT,
@@ -30,11 +31,13 @@ export const getUserPosts = (
       selectInput: selectInput === 'Users' ? 'users' : 'repositories',
       searchInput,
     });
-
     if (data.data.status === 200) {
       dispatch({
         type: GET_USER_POSTS,
         posts: data.data.data,
+        message: _.isEmpty(data.data.data.items)
+          ? 'No records were found. Please try a different search!'
+          : '',
       });
     } else {
       dispatch({

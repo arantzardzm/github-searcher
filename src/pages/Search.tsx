@@ -26,6 +26,7 @@ const Search = (props: Props) => {
     updateSearchInput,
     getPosts,
     clearPosts,
+    message,
   } = props;
   const { items } = posts;
   const className = _.isEmpty(posts) ? 'wrapper-full' : 'wrapper-top';
@@ -74,7 +75,12 @@ const Search = (props: Props) => {
           </form>
         </div>
         <div className="grid-wrapper">
-          <Grid posts={items} status={status} input={selectInput} />
+          <Grid
+            posts={items}
+            status={status}
+            input={selectInput}
+            text={message}
+          />
         </div>
       </div>
     </>
@@ -86,6 +92,7 @@ const mapStateToProps = (state: any) => ({
   searchInput: state.github.searchInput,
   posts: state.github.posts,
   status: state.github.status,
+  message: state.github.message,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
