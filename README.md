@@ -2,10 +2,12 @@
 This project contains the frontend for the Github Search Application. It allows any user to type a search value and filter by three different categories: Users, Repositories, and Issues. The data is returned and displayed in cards inside a grid.
 
 ## Motivation
-This project was created as a result of a code challenge provided by Tradeling. More details on the code challenge implementation can be found [here](https://github.com/tradeling/coding-tasks/tree/develop/fullstack-javascript)
+This project was created as a result of a code challenge provided by Tradeling. More details on the code challenge implementation can be found [here](https://github.com/tradeling/coding-tasks/tree/develop/fullstack-javascript).
 
-## Screenshots
-Include logo/demo screenshot etc.
+## Screenshots of Project
+![Search Page Image](https://octodex.github.com/images/SearchPage.png)
+![Search Page Image](https://octodex.github.com/images/UsersSelect.png)
+![Search Page Image](https://octodex.github.com/images/RepositoriesSelect.png)
 
 ## Technologies Used
 <b>Built with</b>
@@ -17,7 +19,8 @@ Include logo/demo screenshot etc.
 
 
 ## Standards
-Code Conventions: https://github.com/airbnb/javascript
+<b>Code Conventions:</b>
+- [Airbnb](https://github.com/airbnb/javascript)
 
 ## Installation
 
@@ -27,9 +30,8 @@ cd github-searcher/
 cp env .env
 yarn install
 yarn start
-
 ```
-The application should open up in your broswer with: http://localhost:3000/
+The application should open up in your browser with: http://localhost:3000
 Feel free to explore and search for users, repositories, and issues!
 
 ## API Reference
