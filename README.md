@@ -3,8 +3,7 @@ This project contains the frontend for the Github Search Application. It allows 
 
 
 ## Motivation
-This project was created as a result of a code challenge provided by Tradeling. \
-More details on the code challenge implementation can be found [here](https://github.com/tradeling/coding-tasks/tree/develop/fullstack-javascript).
+This project was created as a result of a code challenge.
 
 
 ## Screenshots of Project
